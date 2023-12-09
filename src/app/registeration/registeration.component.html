@@ -1,0 +1,76 @@
+<body>
+    <a href="index.html">
+        <img src="../../assets/images/logo.jpeg" alt="My Image">
+       </a>
+<div *ngIf="registerStatus == 0">
+<form [formGroup]="registrationForm" (ngSubmit)="register()">
+  <h2>DONOR REGISTRATION PAGE</h2>
+
+  <div class="form-group">
+    <label for="username">Username:</label>
+    <input type="text" id="username" formControlName="username">
+    <div class="error-message"  *ngIf="registrationForm?.get('username')?.touched && registrationForm?.get('username')?.hasError('required')">
+      Username is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="age">Age:</label>
+    <input type="number" id="age" formControlName="age" min="0">
+    <div class="error-message"  *ngIf="registrationForm?.get('username')?.touched && registrationForm?.get('username')?.hasError('required')">
+      Age is required.
+    </div>
+    <div *ngIf="registrationForm?.get('age')?.touched && registrationForm?.get('age')?.hasError('min')" class="error-message">
+      Age must be at least 18.
+    </div>
+    <div *ngIf="registrationForm?.get('age')?.touched && registrationForm?.get('age')?.hasError('max')" class="error-message">
+      Age must be at most 65.
+    </div>
+  </div>
+
+  <label class="gender-label">Gender:</label>
+  <div class="gender-container">
+    <input type="radio" id="male" name="gender" value="male" formControlName="gender">
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender" value="female" formControlName="gender">
+    <label for="female">Female</label>
+  </div>
+
+<label for="bloodGroup">Blood Group:</label>
+<select id="bloodGroup" formControlName="bloodGroup">
+  <option *ngIf="registrationForm?.get('bloodGroup')?.value === ''" value="" selected disabled>Select your blood group</option>
+  <option *ngFor="let group of bloodGroups" [value]="group.value">{{ group.itemName }}</option>
+</select>
+
+
+<div class="form-group">
+  <label for="password">Password:</label>
+  <input type="password" id="password" formControlName="password">
+  <div class="error-message" *ngIf="registrationForm?.get('password')?.touched && registrationForm?.get('password')?.hasError('required')">
+    Password is required.
+  </div>
+  <div class="error-message" *ngIf="registrationForm?.get('password')?.touched && registrationForm?.get('password')?.hasError('minlength')">
+    Password must be at least 6 characters long.
+  </div>
+</div>
+
+  <input type="submit" value="Register" [disabled]="registrationForm.invalid">
+
+  <a>
+    <button type="button" value="submit" (click)="redirect()"> Login </button>
+  </a>
+</form>
+</div>
+
+<div class="popup" *ngIf="registerStatus !=0">
+  <div id="confirmPopup" class="overlay">
+    <div class="popup">
+      <p>{{msg}}</p>
+      <button (click)="redirect()">OK</button>
+    </div>
+  </div>
+ </div>
+
+</body>
+
+  

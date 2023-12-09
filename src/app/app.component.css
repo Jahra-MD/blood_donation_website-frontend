@@ -1,0 +1,24 @@
+
+  nav {
+    background-color: #333;
+    
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  li {
+    padding: 10px;
+    margin: 0 10px;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  
+  li.active {
+    background-color: #555;
+  }
+  

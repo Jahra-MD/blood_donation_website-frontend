@@ -1,0 +1,30 @@
+<body>
+<div class="body">
+ <div>
+  <img src="../../assets/images/donorlist.jpeg" alt="" width="150" height="50">
+ </div>
+<table>
+    <thead>
+      <tr>
+        <th>Donor Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Blood Group</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of people$ | async">
+        <td>{{ person.username }}</td>
+        <td>{{ person.age }}</td>
+        <td>{{ person.gender }}</td>
+        <td>{{ person.blood_group }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+</body>
+
+ 
+
