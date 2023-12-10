@@ -53,11 +53,17 @@ export class RegisterationComponent {
 
     this.RegisterationService.getRegisterData(body).subscribe(
       (data) => {
+        if(data == null)
+        {
+          this.msg = "username already exists try a different name"
+          this.registerStatus =2;
+        }
+        else{
         console.log('Registration successful', data);
         this.msg = 'Donor has registered successfully!! Please Login to Continue'
         this.registrationForm.reset();
         this.registerStatus =1
-        // this.router.navigate(['/login']);
+        }
       },
       (error) => {
         console.error('Error fetching data from API:', error);
@@ -66,13 +72,17 @@ export class RegisterationComponent {
       }
     );
     }
-    else {
-      // this.validate = true;
-    }
   }
 
   redirect()
-  { this.registerStatus = 0;
-    this.router.navigate(['/login']);
+  {
+    if(this.registerStatus == 1)
+    {
+    this.router.navigate(['/login'],{ queryParams: { id: '3' }});
+    }
+    else{
+      this.router.navigate(['/register'],{ queryParams: { id: '2' }});
+    }
+    this.registerStatus = 0;
   }
   }

@@ -31,8 +31,10 @@ export class LoginComponent {
       password: this.loginForm.get('password')!.value,
     }
     console.log(body, 'body from login');
+    const data = this.LoginService.getEncryptedData(JSON.stringify(body));
+    console.log(JSON.stringify(data), 'encrypted data');
 
-    this.LoginService.getLoginData(body).subscribe(
+    this.LoginService.getData(data).subscribe(
       (data) => {
         if(data != null)
         {
@@ -40,7 +42,7 @@ export class LoginComponent {
         sessionStorage.setItem('currentUser', JSON.stringify(data))
         this.msg = 'You have login successfully'
         this.loginStatus =1
-        this.router.navigate(['/people']);
+        this.router.navigate(['/profile'],{ queryParams: { id: '6' }});
         }
         else
         {

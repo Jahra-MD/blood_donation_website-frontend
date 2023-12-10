@@ -1,0 +1,67 @@
+<body>
+
+    <h2>Profile Page</h2>
+    
+    <div class="row">
+       <div class="column">
+        <table>
+            <tr>
+              <th style="padding: 10px; text-align: left">Name:</th>
+            </tr>
+            <tr>
+              <th style="text-align: center;">{{currentUser.username}}</th>
+            </tr>
+            <tr>
+              <th style="padding: 10px; text-align: left; padding-top:30px">Age:</th>
+            </tr>
+            <tr>
+              <th  style="text-align: center;">{{currentUser.age}}</th>
+            </tr>
+            <tr>
+              <th style="padding: 10px; text-align: left;padding-top:30px">Blood Group:</th>
+            </tr>
+            <tr>
+              <th  style="text-align: center;">{{currentUser.blood_group}}</th>
+            </tr>
+          </table>
+
+          <div class="card3">
+            <img src="../../assets/images/requirements.jpg" class="card-img-top" alt="..."
+            style="width: 350px; height: 210px; object-fit: cover;">
+          </div>
+       </div>
+        
+      <div class="column">
+        <!-- <h2>Column 2</h2>
+        <p>Some text..</p> -->
+        <div class="card4" style="width: 18rem;">
+            <img class="card-img-top"   src="../../assets/images/profimage.jpeg" alt="Card image cap">
+          </div>
+        <div class="card1" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Donor List</h5>
+              <p class="card-text">Click on the link below to see a list of blood donors and their contact info.</p>
+              <button class="btn btn-info" type="button" (click)="redirect()">Donor's list</button>
+            </div>
+          </div>
+      </div>
+      <div class="column">
+        <!-- <h2>Column 3</h2> -->
+        <div class="card2">
+            <div class="card-header">
+            <strong> Donor Centers Nearby</strong>
+            </div>
+            <div class="card-body">
+              <blockquote class="blockquote mb-0">
+                <p>11-4-2/1,Rockdale Layout, Waltair Main Rd, Ram Nagar, Visakhapatnam, Andhra Pradesh 530002</p>
+                <p>New Life Blood Centre, Flat No.101, First, Gabhasti Hermitage, HIG-82, Sector I, MVP Colony, Visakhapatnam, Andhra Pradesh 530017</p>
+                <p>New Life Blood Centre, Flat No.101, First, Gabhasti Hermitage, HIG-82, Sector I, MVP Colony, Visakhapatnam, Andhra Pradesh 530017</p>
+                <p>11-4-2/1,Rockdale Layout, Waltair Main Rd, Ram Nagar, Visakhapatnam, Andhra Pradesh 530002</p>
+              </blockquote>
+            </div>
+        </div>
+        <!-- <p>Some text..</p> -->
+      </div>
+    </div>
+    
+    </body>

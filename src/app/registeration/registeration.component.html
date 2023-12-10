@@ -4,7 +4,7 @@
        </a>
 <div *ngIf="registerStatus == 0">
 <form [formGroup]="registrationForm" (ngSubmit)="register()">
-  <h2>DONOR REGISTRATION PAGE</h2>
+  <h2>DONOR'S REGISTRATION</h2>
 
   <div class="form-group">
     <label for="username">Username:</label>
@@ -17,7 +17,7 @@
   <div class="form-group">
     <label for="age">Age:</label>
     <input type="number" id="age" formControlName="age" min="0">
-    <div class="error-message"  *ngIf="registrationForm?.get('username')?.touched && registrationForm?.get('username')?.hasError('required')">
+    <div class="error-message"  *ngIf="registrationForm?.get('age')?.touched && registrationForm?.get('age')?.hasError('required')">
       Age is required.
     </div>
     <div *ngIf="registrationForm?.get('age')?.touched && registrationForm?.get('age')?.hasError('min')" class="error-message">
